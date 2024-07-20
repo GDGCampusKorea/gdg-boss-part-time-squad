@@ -1,0 +1,24 @@
+## Build generated
+build/
+DerivedData/
+
+## Other
+.DS_Store
+*.DS_Store
+*.moved-aside
+*.xccheckout
+*.xcscmblueprint
+
+
+## Obj-C/Swift specific
+*.hmap
+*.ipa
+*.dSYM.zip
+*.dSYM
+
+# Tuist
+Derived/
+*.xcodeproj
+*.xcworkspace
+Tuist/Package.resolved
+Tuist/.build/**
