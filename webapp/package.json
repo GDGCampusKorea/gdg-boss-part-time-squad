@@ -29,6 +29,8 @@
     "@types/react-lazy-load-image-component": "^1.6.4",
     "@wyw-in-js/babel-preset": "^0.5.4",
     "axios": "^1.7.2",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.2.1",
     "msw": "^2.3.2",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
