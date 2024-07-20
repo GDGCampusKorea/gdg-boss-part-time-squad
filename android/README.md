@@ -4,7 +4,7 @@ GDG 상사 Android 레포지토리 입니다.
 
 # Requirements
 아래의 요구사항을 미리 준비해 주세요.
- - Android Studio Lguana 이상
+ - Android Studio Iguana 이상
  - Android Gradle Plugin 8.0 이상 
 
 # Stack
