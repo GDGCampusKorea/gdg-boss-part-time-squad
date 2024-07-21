@@ -1,5 +1,6 @@
 package com.gdg.boss
 
+import com.gdg.boss.partTimeJobPosting.PartTimeJobPostingService
 import dagger.Binds
 import dagger.Module
 import dagger.Provides
@@ -38,7 +39,7 @@ object DataModule {
         okHttpClient: OkHttpClient
     ): Retrofit {
         return Retrofit.Builder()
-            .baseUrl("TODO")
+            .baseUrl("localhost:8081/api/")
             .client(okHttpClient)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
@@ -49,4 +50,10 @@ object DataModule {
     fun provideApi(
         retrofit: Retrofit
     ): TestApi = retrofit.create(TestApi::class.java)
+
+    @Singleton
+    @Provides
+    fun providePartTimeJobPostingService(
+        retrofit: Retrofit
+    ): PartTimeJobPostingService = retrofit.create(PartTimeJobPostingService::class.java)
 }
