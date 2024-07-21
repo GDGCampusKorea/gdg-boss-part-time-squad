@@ -40,6 +40,15 @@
 <!--                <category android:name="android.intent.category.LAUNCHER" />-->
 <!--            </intent-filter>-->
         </activity>
+
+        <!-- 상세 페이지 -->
+        <activity
+            android:name="com.gdg.boss.ActDetail"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:launchMode="singleTop"
+            android:theme="@style/Theme.Gdg"/>
+
     </application>
 
 </manifest>
