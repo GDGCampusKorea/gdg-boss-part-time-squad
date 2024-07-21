@@ -9,6 +9,9 @@ import {
 } from "../hooks/useGetJobArticles";
 import { API_ENDPOINT } from "../instance";
 
+// Mock mode로 열면 service worker high jacking
+// mock json을 뿌려줌
+
 export const jobArticlesMockResponse = [
   {
     articleId: "02542470",

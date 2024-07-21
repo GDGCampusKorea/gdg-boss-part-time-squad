@@ -3,6 +3,7 @@ import { basicRendererPlugin } from "@stackflow/plugin-renderer-basic";
 import { basicUIPlugin } from "@stackflow/plugin-basic-ui";
 import { JobsListPage } from "../../components/jobAritcles/pages/JobsListPage";
 import { JobsArticleDetailPage } from "../../components/jobArticleDetail/pages/JobsArticleDetailPage";
+import { RegisterPage } from "../../components/recruitPost/pages/RegisterPage";
 
 const initStackflow = () => {
   return stackflow({
@@ -10,6 +11,7 @@ const initStackflow = () => {
     activities: {
       JobsListPage,
       JobsArticleDetailPage,
+      RegisterPage,
     },
     plugins: [
       basicRendererPlugin(),

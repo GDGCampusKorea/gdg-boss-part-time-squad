@@ -1,8 +1,9 @@
 import React from "react";
 import { LazyLoadImage } from "react-lazy-load-image-component";
+// 이미지의 사이즈를 줄이는 게 효과적이다, 사용자 경험 향상을 위한 블러처리 / 용량보다는 보여주기를 위함
 import { useFlow } from "../../../lib/stackflow"; // Import useFlow from stackflow
 import { styled } from "@linaria/react";
-import { vars } from "@seed-design/design-token";
+import { vars } from "@seed-design/design-token"; // 디자인 토큰 디자이너가 정의한 본인이 직접 정의할 수 있음.
 import {
   Flex,
   ResetButton,
@@ -31,7 +32,7 @@ export const FeedCard: React.FC<FeedCardProps> = ({
   const imageUrl = `https://picsum.photos/800/800/?id=${articleId}`;
 
   const onClick = () => {
-    push("JobsArticleDetailPage", {
+    push("RegisterPage", {
       articleId: String(articleId),
       title,
     });
