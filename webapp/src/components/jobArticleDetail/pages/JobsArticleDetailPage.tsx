@@ -13,7 +13,7 @@ export const JobsArticleDetailPage = (props: Props) => {
   return (
     <AppScreen
       appBar={{
-        title: "게시글 상세",
+        title: "상세",
       }}
     >
       <AsyncBoundary>
