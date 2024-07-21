@@ -8,3 +8,10 @@
 - Android Mento: 유희진님 
 
 - Backend Mento: 김재환님 
+
+
+- 노션 기획 문서 :
+  알바 - https://gdgcampuskorea.notion.site/37beceb2e3724a7da41f98b2920db030?pvs=4
+
+- 피그마 디자인 링크 : https://www.figma.com/design/C0pbPWpUjAdwaOtLeQFFME/gdg%EC%83%81%EC%82%AC?node-id=127-14675&t=5ydPlWYJijkPXgde-11
+
