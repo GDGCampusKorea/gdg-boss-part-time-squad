@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- Header -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/ctHeader"
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <!-- BackPress Button -->
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="4dp"
+            android:padding="16dp"
+            android:src="@drawable/icon_back_button"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- Header Text -->
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvTitleA"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:ellipsize="end"
+            android:gravity="start|center"
+            android:maxLines="1"
+            android:text="상세"
+            android:textColor="@color/black"
+            android:textSize="22dp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/ivBack"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- Line -->
+        <View
+            android:id="@+id/underLine"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#e5e1e1"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <!-- 컨텐츠 영역 -->
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/nsvContents"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ctHeader">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <!-- 공고 이미지 -->
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivImage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="28dp"
+                android:adjustViewBounds="true"
+                android:src="@drawable/dummy_detail_img" />
+
+            <!-- 제목 -->
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvtitleB"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="28dp"
+                android:textColor="#1d1b20"
+                android:textSize="22dp"
+                android:textStyle="normal"
+                tools:text="GDG 회사 알바생 모집" />
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/ctInformationRoot"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/bg_width_1dp_cac4d0"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvTime"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableStart="@drawable/icon_time"
+                    android:drawablePadding="5.3dp"
+                    android:paddingEnd="5.3dp"
+                    tools:text="주 7일 , 1개월 이상" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvMoney"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:drawableStart="@drawable/icon_money"
+                    android:drawablePadding="5.3dp"
+                    android:paddingEnd="5.3dp"
+                    tools:text="시급 200,000원" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvLocal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:drawableStart="@drawable/icon_local"
+                    android:drawablePadding="5.3dp"
+                    android:paddingEnd="5.3dp"
+                    tools:text="삼성동" />
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvTitleC"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:text="모집 내용"
+                android:textColor="#1d1b20"
+                android:textSize="22dp"
+                android:textStyle="bold" />
+
+            <!-- 정보 -->
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvInformation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                tools:text="안녕하세요, 미래의 팀원 여러분!  삼성동의 혁신적인 GDG 스타트업에서 신나는 파트타임 일자리에 뛰어들 준비가 되셨나요? 저희는 열정적이고 도전적인 인재를 찾고 있습니다.
+만약 이게 당신이라면, 계속 읽어주세요!
+우리가 제공하는 경쟁력 있는 급여: 시간당 200,000원의 놀라운 임금을 받으세요!
+유연한 일정: 1개월 이상, 주 7일 근무 – 바쁘게 지내는 것을 좋아하는 분들에게
+딱! 활기찬 근무 환경: 기술과 혁신에 열정을 가진 동료들과 함께하세요.
+성장 기회: 당신의 아이디어가 중요하고 성장할 수 있는 스타트업의 일원이 되세요. 우리가 찾는 인재:  새로운 도전을 기꺼이 받아들이는 열정적이고 의욕적인 분. 긍정적인 태도와 뛰어난 의사소통 능력을 갖춘 팀 플레이어. 기술, 혁신, GDG에 대한 열정을 가진 분! 위치:  삼성동 중심부에 위치한 저희 멋진 사무실. 지원 방법:  이력서와 간단한 자기소개서를 exampleemail@gdgstartup.com으로 보내주세요. 왜 우리 팀에 적합한지 알려주세요. 이 훌륭한 기회를 놓치지 마세요! 당신의 기술을 키우고, 멋진 사람들을 만나고, 좋은 임금을 받을 수 있습니다. 여러분의 지원을 기다리고 있겠습니다!
+지금 지원하고 함께 멋진 것을 만들어 봅시다!
+따뜻하게, GDG 스타트업 팀" />
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+    </androidx.core.widget.NestedScrollView>
+
+    <!-- 지원하기 -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/ctButtonRoot"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:background="@color/white"
+        android:paddingStart="16dp"
+        android:paddingTop="10dp"
+        android:paddingEnd="16dp"
+        android:paddingBottom="22dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvSendData"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_ea4335_radius_12"
+            android:gravity="center"
+            android:padding="12dp"
+            android:text="지원하기"
+            android:textColor="@color/white"
+            android:textSize="16dp"
+            android:textStyle="normal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
