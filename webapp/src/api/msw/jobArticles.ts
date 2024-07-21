@@ -82,7 +82,7 @@ export const jobArticlesMockResponse = [
   },
 ];
 
-type JobArticleResponse = typeof jobArticlesMockResponse[0]
+// type JobArticleResponse = typeof jobArticlesMockResponse[0]
 
 const jobArticlesGet = (statusCode: number, response: JobArticlesResponse) =>
   mswHttp.get(`${API_ENDPOINT}/${JOB_ARTICLES_URL}`, () => {
