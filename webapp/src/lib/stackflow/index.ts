@@ -2,6 +2,7 @@ import { stackflow, useActions, useStepActions } from "@stackflow/react";
 import { basicRendererPlugin } from "@stackflow/plugin-renderer-basic";
 import { basicUIPlugin } from "@stackflow/plugin-basic-ui";
 import { JobsListPage } from "../../components/jobAritcles/pages/JobsListPage";
+import RecruitPostPage from "../../components/recruitPost/pages/RecruitPostPage";
 import { JobsArticleDetailPage } from "../../components/jobArticleDetail/pages/JobsArticleDetailPage";
 
 const initStackflow = () => {
@@ -10,6 +11,7 @@ const initStackflow = () => {
     activities: {
       JobsListPage,
       JobsArticleDetailPage,
+      RecruitPostPage,
     },
     plugins: [
       basicRendererPlugin(),
@@ -17,7 +19,7 @@ const initStackflow = () => {
         theme: "cupertino",
       }),
     ],
-    initialActivity: () => "JobsListPage",
+    initialActivity: () => "RecruitPostPage",
   });
 };
 

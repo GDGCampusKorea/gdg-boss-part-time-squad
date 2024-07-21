@@ -14,6 +14,7 @@
     "@babel/plugin-transform-export-namespace-from": "^7.24.7",
     "@babel/preset-react": "^7.24.7",
     "@babel/preset-typescript": "^7.24.7",
+    "@hookform/resolvers": "^3.9.0",
     "@linaria/core": "^6.2.0",
     "@linaria/react": "^6.2.1",
     "@seed-design/design-token": "^1.0.3",
