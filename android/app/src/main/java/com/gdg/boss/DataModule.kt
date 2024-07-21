@@ -39,7 +39,7 @@ object DataModule {
         okHttpClient: OkHttpClient
     ): Retrofit {
         return Retrofit.Builder()
-            .baseUrl("localhost:8081/api/")
+            .baseUrl("https://")
             .client(okHttpClient)
             .addConverterFactory(GsonConverterFactory.create())
             .build()

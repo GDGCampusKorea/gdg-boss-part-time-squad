@@ -14,7 +14,7 @@ class PartTimeJobPostingViewModel @Inject constructor(
     PartTimeJobPostingUIState()
 ){
 
-    override fun handleIntent(intent: PartTimeJobPostingIntent) {
+    public override fun handleIntent(intent: PartTimeJobPostingIntent) {
         when(intent){
             is PartTimeJobPostingIntent.WorkTimeChange -> onWorkTimeChange(intent.time)
             is PartTimeJobPostingIntent.ContentChange -> onContentChange(intent.content)
