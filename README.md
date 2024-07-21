@@ -15,3 +15,4 @@
 
 - 피그마 디자인 링크 : https://www.figma.com/design/C0pbPWpUjAdwaOtLeQFFME/gdg%EC%83%81%EC%82%AC?node-id=127-14675&t=5ydPlWYJijkPXgde-11
 
+- api 문서: https://military-farmer-40b.notion.site/GDG-Korea-2ff2c8fce4f74597ab6922457ee9bff0
