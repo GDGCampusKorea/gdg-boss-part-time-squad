@@ -1,11 +1,81 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Hello World"/>
+        android:layout_height="50dp"
+        app:contentInsetStart="0dp"
+        app:layout_constraintTop_toTopOf="parent">
+        
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/ivBack"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_back_arrow"
+                android:layout_marginStart="20dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="알바"
+                android:textSize="20dp"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:layout_marginStart="20dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@id/ivBack"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/ivCreateJob"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_write"
+                android:layout_marginEnd="20dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        
+    </androidx.appcompat.widget.Toolbar>
+
+    <View
+        android:id="@+id/boundary"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:background="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar" />
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fcvMain"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@id/bottomNavMain"
+        app:layout_constraintTop_toBottomOf="@id/boundary" />
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavMain"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        app:elevation="5dp"
+        app:labelVisibilityMode="selected"
+        app:itemIconTint="@color/black"
+        app:itemTextColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:menu="@menu/main_bottom_nav" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

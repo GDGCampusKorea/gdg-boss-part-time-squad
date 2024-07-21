@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/menu_write"
+        android:title="글쓰기"
+        android:icon="@drawable/ic_write" />
+    <item android:id="@+id/menu_home"
+        android:title="홈"
+        android:icon="@drawable/ic_home" />
+    <item android:id="@+id/menu_find_job"
+        android:title="알바찾기"
+        android:icon="@drawable/ic_find_job" />
+</menu>
