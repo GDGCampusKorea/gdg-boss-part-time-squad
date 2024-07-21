@@ -2,4 +2,10 @@
 <resources>
 
     <style name="Theme.Gdg" parent="android:Theme.Material.Light.NoActionBar" />
+
+    <style name="MaterialProfile">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
+    </style>
+
 </resources>
