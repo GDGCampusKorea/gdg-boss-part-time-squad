@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
@@ -20,6 +21,7 @@ import androidx.compose.material3.IconButton
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -70,7 +72,7 @@ fun ScaffoldGdgBoss(
                         fontSize = 22.sp,
                         fontWeight = FontWeight.ExtraBold,
                         color = Color(0xFF1D1B20),
-                        lineHeight = 28.sp,  // 22sp + 6sp line spacing
+                        lineHeight = 28.sp,
                         fontFamily = FontFamily.SansSerif
                     )
                 },
@@ -86,10 +88,7 @@ fun ScaffoldGdgBoss(
                 },
                 modifier = Modifier
                     .fillMaxWidth()
-                    .background(
-                        color = Color.White,
-                        shape = RectangleShape
-                    )
+                    .background(Color.White)
                     .border(
                         width = 1.dp,
                         color = Color(0xFFE5E1E1),
@@ -109,7 +108,6 @@ fun ScaffoldGdgBoss(
                         shape = RectangleShape
                     ),
                 contentAlignment = Alignment.Center
-
             ) {
                 Button(
                     onClick = { onIntent(PartTimeJobPostingContract.PartTimeJobPostingIntent.PartTimeJobPosting) },
@@ -136,12 +134,14 @@ fun ScaffoldGdgBoss(
             }
         },
         content = { paddingValues ->
-            Column(
+            LazyColumn(
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(paddingValues)
             ) {
-                JobContent(uiState = uiState, onIntent = onIntent)
+                item {
+                    JobContent(uiState = uiState, onIntent = onIntent)
+                }
             }
         }
     )
@@ -156,31 +156,34 @@ fun JobContent(
         modifier = Modifier
             .fillMaxWidth()
             .background(Color.White)
-            .padding(vertical = 12.dp)
+            .padding(vertical = 12.dp, horizontal = 16.dp)
     ) {
         JobInfoInput(
             title = "제목",
             value = uiState.title,
-            onValueChange = { onIntent(PartTimeJobPostingContract.PartTimeJobPostingIntent.TitleChange(it)) },
-            placeholder = "제목을 입력하세요"
+            onValueChange = {
+                onIntent(
+                    PartTimeJobPostingContract.PartTimeJobPostingIntent.TitleChange(
+                        it
+                    )
+                )
+            },
+            placeholder = "GDG 회사 알바생 모집"
         )
 
         Spacer(modifier = Modifier.height(12.dp))
 
         JobInfoInput(
-            title = "내용",
-            value = uiState.content,
-            onValueChange = { onIntent(PartTimeJobPostingContract.PartTimeJobPostingIntent.ContentChange(it)) },
-            placeholder = "내용을 입력하세요"
-        )
-
-        Spacer(modifier = Modifier.height(12.dp))
-
-        JobInfoInput(
-            title = "근무 시간",
+            title = "시간",
             value = uiState.workTime,
-            onValueChange = { onIntent(PartTimeJobPostingContract.PartTimeJobPostingIntent.WorkTimeChange(it)) },
-            placeholder = "근무 시간을 입력하세요"
+            onValueChange = {
+                onIntent(
+                    PartTimeJobPostingContract.PartTimeJobPostingIntent.WorkTimeChange(
+                        it
+                    )
+                )
+            },
+            placeholder = "주 7일, 1개월 이상"
         )
 
         Spacer(modifier = Modifier.height(12.dp))
@@ -188,8 +191,14 @@ fun JobContent(
         JobInfoInput(
             title = "시급",
             value = uiState.hourlyWage,
-            onValueChange = { onIntent(PartTimeJobPostingContract.PartTimeJobPostingIntent.HourlyWageChange(it)) },
-            placeholder = "시급을 입력하세요"
+            onValueChange = {
+                onIntent(
+                    PartTimeJobPostingContract.PartTimeJobPostingIntent.HourlyWageChange(
+                        it
+                    )
+                )
+            },
+            placeholder = "시급 200,000원"
         )
 
         Spacer(modifier = Modifier.height(12.dp))
@@ -197,8 +206,29 @@ fun JobContent(
         JobInfoInput(
             title = "위치",
             value = uiState.location,
-            onValueChange = { onIntent(PartTimeJobPostingContract.PartTimeJobPostingIntent.LocationChange(it)) },
-            placeholder = "위치를 입력하세요"
+            onValueChange = {
+                onIntent(
+                    PartTimeJobPostingContract.PartTimeJobPostingIntent.LocationChange(
+                        it
+                    )
+                )
+            },
+            placeholder = "삼성동"
+        )
+
+        Spacer(modifier = Modifier.height(12.dp))
+
+        JobInfoInput(
+            title = "내용",
+            value = uiState.content,
+            onValueChange = {
+                onIntent(
+                    PartTimeJobPostingContract.PartTimeJobPostingIntent.ContentChange(
+                        it
+                    )
+                )
+            },
+            placeholder = "내용을 입력해주세요"
         )
     }
 }
@@ -223,23 +253,63 @@ fun JobInfoInput(
             fontWeight = FontWeight.Bold,
             fontSize = 22.sp,
             color = Color(0xFF333333),
-            lineHeight = 28.sp // 22sp text size + 6sp line spacing extra
+            lineHeight = 28.sp
         )
 
         Spacer(modifier = Modifier.height(12.dp))
 
         Row(
             modifier = Modifier
-                .fillMaxWidth()
-                .padding(horizontal = 12.dp),
+                .fillMaxWidth(),
             verticalAlignment = Alignment.CenterVertically
         ) {
-            OutlinedTextField(
-                value = value,
-                onValueChange = onValueChange,
-                placeholder = { Text(text = placeholder) },
-                modifier = Modifier.fillMaxWidth()
-            )
+            if (title == "내용") {
+                OutlinedTextField(
+                    value = value,
+                    onValueChange = onValueChange,
+                    placeholder = {
+                        Text(
+                            text = placeholder,
+                            fontFamily = FontFamily.SansSerif,
+                            fontWeight = FontWeight.Normal,
+                            lineHeight = 24.sp,
+                            fontSize = 16.sp,
+                            letterSpacing = 0.5.sp,
+                            color = Color(0xFF939090),
+                        )
+                    },
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(500.dp), // Increased height for "내용"
+                    shape = RoundedCornerShape(12.dp),
+                    colors = TextFieldDefaults.outlinedTextFieldColors(
+                        focusedBorderColor = Color(0xFF9d9d9d),
+                        unfocusedBorderColor = Color(0xFF9d9d9d)
+                    )
+                )
+            } else {
+                OutlinedTextField(
+                    value = value,
+                    onValueChange = onValueChange,
+                    placeholder = {
+                        Text(
+                            text = placeholder,
+                            fontFamily = FontFamily.SansSerif,
+                            fontWeight = FontWeight.Normal,
+                            lineHeight = 24.sp,
+                            fontSize = 16.sp,
+                            letterSpacing = 0.5.sp,
+                            color = Color(0xFF939090),
+                        )
+                    },
+                    modifier = Modifier.fillMaxWidth(),
+                    shape = RoundedCornerShape(12.dp),
+                    colors = TextFieldDefaults.outlinedTextFieldColors(
+                        focusedBorderColor = Color(0xFF9d9d9d),
+                        unfocusedBorderColor = Color(0xFF9d9d9d)
+                    )
+                )
+            }
         }
     }
 }
